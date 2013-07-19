@@ -20,9 +20,10 @@
 <%= render partial: 'articles/comment', collection: @article.comments %>
 
 <%= render partial: 'comments/form' %>
-
+<% if logged_in? %>
 <%= link_to "<< Go Back To Article List", articles_path %>
 <%= link_to "Delete", article_path(@article), 
 :method => :delete, 
 data: {confirm: "Are You Sure?"} %>
 <%= link_to "Edit", edit_article_path(@article) %>
+<% end %>
