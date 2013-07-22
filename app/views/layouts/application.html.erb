@@ -7,25 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <p class="flash">
     <%= flash.notice %>
   </p>
   <body>
-  <div id="container">
-    <div id="content">
-      <%= yield %>
-      <hr>
-      <h6>
-        <% if logged_in? %>
+    <div id="container">
+      <div id="content">
+        <%= yield %>
+        <hr>
+        <h6>
+          <% if logged_in? %>
           <%= "Logged in as #{current_user.username}" %>
           <%= link_to "(logout)", logout_path, method: 
           :delete  %>
-        <% else %>
+          <% else %>
           <%= link_to "(login)", login_path %>
-        <% end %>
-      </h6>
+          <% end %>
+        </h6>
+      </div>
     </div>
-  </div>
-</body>
+    <div>
+      <br>
+      <br>
+      <h5>Find The Way</h5>
+      <ul id="nav-list">
+       <li id="item"><a href="/">Home</a></li>
+       <li id="item"><a id="link" href="/tags">All Tags</a></li>
+       <li id="item"><a id="link" href="/articles">All Articles</a></li>
+
+     </ul>
+   </div>
+ </body>
 </body>
 </html>
